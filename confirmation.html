@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen and (min-width: 600px)" href="Assessment-Popup.css">
+<link rel="stylesheet" media="screen and (max-width: 600px)" href="Assessment-Popup-Small.css">
+  <title>Confirmation Page</title>
+</head>
+
+<body>
+    <div>
+        <h2>Confirmation Complete! Email Recorded.</h2>
+        <button class ="button">Back to Page</button>
+    </div>
+      
+    <script>
+      let backBtns = [...document.querySelectorAll(".button")];
+      backBtns.forEach(function (btn) {
+        btn.onclick = function () {
+           document.location.href = "index.html";     
+        }
+      });
+    </script>
+</body>
+</html>

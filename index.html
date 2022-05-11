@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assessment-Popup</title>
+<link rel="stylesheet" media="screen and (min-width: 600px)" href="Assessment-Popup.css">
+<link rel="stylesheet" media="screen and (max-width: 600px)" href="Assessment-Popup-Small.css">
+</head>
+
+<body>
+    <div>
+        <h2>Assessment Popup</h2>
+        <button class="button" data-modal="modalOne">Get Your Style</button>
+    </div>
+      
+    <div id="modalOne" class="modal">  
+        <div class="style-form center-screen">
+            <div class = "title-card">Get Your Style On</div>
+            <span class = "and-symbol">&amp;</span>
+            <div class = "twenty-number">
+                
+                <div class="percent-off">
+                    <span class = "twenty">20</span>
+                    <span class = "percent">%</span>
+                    <span class = "off">OFF</span>
+                </div>
+                
+                <div class="sign=up-form">
+                    <div class = "form-element">
+                        <input type = "text" id = "email" class = "email" placeholder = "Email Address">
+                    </div>
+                    <div class = "form-element">
+                        <button class = "sign-up">Sign Up</button>
+                    </div>
+                </div>
+            </div>
+            <span class = "close-button">&times;</span>
+
+        </div>
+    </div>
+      
+    <script>
+      let modalBtns = [...document.querySelectorAll(".button")];
+      modalBtns.forEach(function (btn) {
+        btn.onclick = function () {
+          let modal = btn.getAttribute("data-modal");
+          document.getElementById(modal).style.display = "block";
+        };
+      });
+      let closeBtns = [...document.querySelectorAll(".close-button")];
+      closeBtns.forEach(function (btn) {
+        btn.onclick = function () {
+          let modal = btn.closest(".modal");
+          modal.style.display = "none";
+        };
+      });
+    
+      let signUpBtns = [...document.querySelectorAll(".sign-up")];
+      signUpBtns.forEach(function (btn) {
+        btn.onclick = function () {
+          if(document.getElementById("email").value.length == 0)
+                {
+                    alert("Empty Email")
+                }
+            else {
+                if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(document.getElementById("email").value)) {
+                    document.location.href = "confirmation.html";
+                } else{
+                     alert("You have entered an invalid email address!")
+                }
+            }
+        };
+      });
+        /*
+      window.onclick = function (event) {
+        if (event.target.className === "modal") {
+          event.target.style.display = "none";
+        }
+      };
+      */
+    </script>
+</body>
+</html>
